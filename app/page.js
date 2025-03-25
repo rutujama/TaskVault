@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import {ArrowRight, BarChart,Calender,ChevronRight,Layout} from "lucide-react";
+import {ArrowRight, BarChart,Calendar,ChevronRight,Layout} from "lucide-react";
 
 import faqs from '@/data/faqs'
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card, CardContent } from "@/components/ui/card";
 
 const features=[
   {
@@ -17,7 +18,7 @@ const features=[
       title:"Powerful Sprint Planning",
       description:
       "Plan and manage sprints effectively,ensuring your team stays focused on delivering value.",
-      icon:Calender,
+      icon:Calendar,
   },
   {
       title:"Comprehensive Reporting",
@@ -61,7 +62,7 @@ offering a smooth and interactive experience. The site prioritizes speed, securi
 </Button>
 
 </Link>
-{/* <section id="features " className="bg-gray-900 py-20 px-5">
+<section id="features " className="bg-gray-900 py-20 px-5">
             <div className="container mx-auto">
               <h3 className="text-3xl font-bold mb-12 text-center">Key Features </h3> 
               <div className="grid grid-clos-1 lg:grid-cols-3 gap-8">{features.map((feature,index) =>{
@@ -79,7 +80,7 @@ offering a smooth and interactive experience. The site prioritizes speed, securi
               }        
               </div> 
             </div>
-        </section> */}
+        </section>
 <section className="bg-gray-900 py-20 px-5"> 
             <div className="container mx-auto">
                 <h3 className="text-3xl font-bold mb-12 text-center">
