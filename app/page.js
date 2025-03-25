@@ -31,6 +31,13 @@ offering a smooth and interactive experience. The site prioritizes speed, securi
 </Button>
 
 </Link>
+<Link href="#features">
+<Button size="lg" Varient="outline" className="mr-4">
+    Learn More <ChevronRight size={18} className="ml-1"/>
+</Button>
+
+</Link>
 </section>
+
 </div>
 }
