@@ -7,6 +7,8 @@ import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
 
+// this is a temp text
+
 const features=[
   {
       title:"Intuitive Kanban Boards",
