@@ -13,7 +13,7 @@ import { getIssuesForSprint, updateIssueOrder } from "@/actions/issues";
 
 import SprintManager from "./sprint-manager";
 import IssueCreationDrawer from "./create-issue";
-//import IssueCard from "@/components/issue-card";
+import IssueCard from "@/components/issue-card";
 //import BoardFilters from "./board-filters";
 
 function reorder(list, startIndex, endIndex) {
