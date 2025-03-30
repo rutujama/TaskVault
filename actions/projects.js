@@ -44,7 +44,7 @@ export async function createProject(data) {
   }
 }
 
-export async function getProject(orgId) {
+export async function getProjects(orgId) {
   const { userId } = auth();
 
   if (!userId || !orgId) {
@@ -104,4 +104,42 @@ export async function deleteProject(projectId) {
   });
 
   return { success: true };
+}
+
+export async function getProject(projectId) {
+  const { userId, orgId } = auth();
+
+  if (!userId || !orgId) {
+    throw new Error("Unauthorized");
+  }
+
+  // Find user to verify existence
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+  });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  // Get project with sprints and organization
+  const project = await db.project.findUnique({
+    where: { id: projectId },
+    include: {
+      sprints: {
+        orderBy: { createdAt: "desc" },
+      },
+    },
+  });
+
+  if (!project) {
+    return null;
+  }
+
+  // Verify project belongs to the organization
+  if (project.organizationId !== orgId) {
+    return null;
+  }
+
+  return project;
 }
