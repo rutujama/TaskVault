@@ -42,6 +42,8 @@ const faqs=[
     },
   ];
 
+// this is a temp text
+
 const features=[
   {
       title:"Intuitive Kanban Boards",
