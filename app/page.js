@@ -2,10 +2,45 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import {ArrowRight, BarChart,Calendar,ChevronRight,Layout} from "lucide-react";
 
-import faqs from '@/data/faqs'
+
 import Link from "next/link";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import faqs from '@/data/faqs'
 import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+
+const faqs=[
+    {
+      question: "What is Taskvault?",
+      answer:
+        "Taskvault is a powerful project management tool designed to help teams organize, track, and manage their work efficiently. It combines intuitive design with robust features to streamline your workflow and boost productivity."
+    },
+    {
+      question: "How does Taskvault compare to other project management tools?",
+      answer:
+        "Taskvault offers a unique combination of intuitive design, powerful features, and flexibility. Unlike other tools, we focus on providing a seamless experience for both agile and traditional project management methodologies, making it versatile for various team structures and project types."
+    },
+    {
+      question: "Is Taskvault suitable for small teams?",
+      answer:
+        "Absolutely! Taskvault is designed to be scalable and flexible. It works great for small teams and can easily grow with your organization as it expands. Our user-friendly interface ensures that teams of any size can quickly adapt and start benefiting from ZCRUM's features."
+    },
+    {
+      question: "What key features does Taskvault offer?",
+      answer:
+        "Taskvault provides a range of powerful features including intuitive Kanban boards for visualizing workflow, robust sprint planning tools for agile teams, comprehensive reporting for data-driven decisions, customizable workflows, time tracking, and team collaboration tools. These features work seamlessly together to enhance your project management experience."
+    },
+    {
+      question: "Can Taskvault handle multiple projects simultaneously?",
+      answer:
+        "Yes, Taskvault is built to manage multiple projects concurrently. You can easily switch between projects, and get a bird's-eye view of all your ongoing work. This makes ZCRUM ideal for organizations juggling multiple projects or clients."
+    },
+    {
+      question: "Is there a learning curve for new users?",
+      answer:
+        "While Taskvault is packed with features, we've designed it with user-friendliness in mind. New users can quickly get up to speed thanks to our intuitive interface, helpful onboarding process, and comprehensive documentation."
+    },
+  ];
 
 const features=[
   {
@@ -81,37 +116,40 @@ offering a smooth and interactive experience. The site prioritizes speed, securi
               </div> 
             </div>
         </section>
-<section className="bg-gray-900 py-20 px-5"> 
-            <div className="container mx-auto">
-                <h3 className="text-3xl font-bold mb-12 text-center">
-                Frequently Asked Question
-                </h3>
-                <Accordion type="single" collapsibl className="W-full">
-                    {faqs.map((faq,index)=>(
-                <AccordionItem key={index} value={'item-${index}'}>
-                <AccordionTrigger>{faqs.question}</AccordionTrigger>
-                <AccordionContent>
-                {faqs.answer}
-               </AccordionContent>
-               </AccordionItem>))}
-               </Accordion>
+ {/* FAQ Section */}
+ <section className="bg-gray-900 py-20 px-5">
+        <div className="container mx-auto">
+          <h3 className="text-3xl font-bold mb-12 text-center">
+            Frequently Asked Questions
+          </h3>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
 
-
-            </div>
-        </section>
 </section>
-<section className=" py-20 text-center px-5 "> 
-            <div className="container mx-auto">
-                <h3 className="text-3xl font-bold mb-5 text-center">
-              Ready to Transform Your Workflow
-                </h3>
-                <p className="text-xl-mb-12">Join our team for new and better experiment.</p>
-                <Link href='onboarding'>
-              <Button size='lg' className="animate-bounce"> Start For free <ArrowRight className="ml-2 h-5 w-5"/>
-                </Button>  
-                </Link>
-            </div>
-        </section>
-    </div>;
+<section className="py-20 text-center px-5">A
+        <div className="container mx-auto">
+          <h3 className="text-3xl font-bold mb-6">
+            Ready to Transform Your Workflow?
+          </h3>
+          <p className="text-xl mb-19">
+            Join thousands of teams already using ZCRUM to streamline their
+            projects and boost productivity.
+          </p>
+          <Link href="/onboarding">
+            <Button size="lg" className="animate-bounce">
+              Start For Free <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </div>
+  
 }
-
