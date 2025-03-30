@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 // this is a temp text
 
-const features=[
+const features=[ 
   {
       title:"Intuitive Kanban Boards",
       description:
