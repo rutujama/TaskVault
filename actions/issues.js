@@ -157,3 +157,36 @@ export async function updateIssue(issueId, data) {
     throw new Error("Error updating issue: " + error.message);
   }
 }
+
+export async function getUserIssues(userId){
+  const {orgId} = auth();
+
+  if(!userId || !ordId){
+    throw new Error("No user id or organization id found");
+  }
+
+  const user = await db.user.findUnique({
+    where: {clerkUserId: userId},
+  });
+
+  if(!user){
+    throw new Error("User not found");
+  }
+
+  const issues= await db.issue.findMany({
+    where:{
+      OR : [{assigneeId:user.id},{reporterId: user.id}],
+      project:{
+          organizationId: orgId,
+      },
+    },
+    include : {
+      project: true,
+      assignee: true,
+      reporter: true,
+    },
+    orderBy: {updateAt : "desc"},
+  });
+
+  return issues;
+}
