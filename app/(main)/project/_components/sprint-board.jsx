@@ -14,7 +14,7 @@ import { getIssuesForSprint, updateIssueOrder } from "@/actions/issues";
 import SprintManager from "./sprint-manager";
 import IssueCreationDrawer from "./create-issue";
 import IssueCard from "@/components/issue-card";
-//import BoardFilters from "./board-filters";
+import BoardFilters from "./board-filters";
 
 function reorder(list, startIndex, endIndex) {
   const result = Array.from(list);
@@ -148,9 +148,9 @@ export default function SprintBoard({ sprints, projectId, orgId }) {
         projectId={projectId}
       />
 
-      {/* {issues && !issuesLoading && (
+      {issues && !issuesLoading && (
         <BoardFilters issues={issues} onFilterChange={handleFilterChange} />
-      )} */}
+      )}
 
       {updateIssuesError && (
         <p className="text-red-500 mt-2">{updateIssuesError.message}</p>
